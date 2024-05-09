@@ -1,4 +1,11 @@
-import { Injectable, Logger, MiddlewareConsumer, Module, NestMiddleware, NestModule } from '@nestjs/common';
+import {
+  Injectable,
+  Logger,
+  MiddlewareConsumer,
+  Module,
+  NestMiddleware,
+  NestModule,
+} from '@nestjs/common';
 import { CountryService } from './country.service';
 import { CountryController } from './country.controller';
 import { PrismaModule } from '../prisma/prisma.module';
@@ -17,7 +24,7 @@ export class AppLoggerMiddleware implements NestMiddleware {
       const contentLength = response.get('content-length');
 
       this.logger.log(
-        `${method} ${url} ${statusCode} ${contentLength} - ${userAgent} ${ip}`
+        `${method} ${url} ${statusCode} ${contentLength} - ${userAgent} ${ip}`,
       );
     });
 

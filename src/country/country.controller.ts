@@ -1,17 +1,4 @@
-import {
-  Controller,
-  Get,
-  Post,
-  Body,
-  Patch,
-  Param,
-  Delete,
-  Query,
-  Res,
-  HttpStatus,
-  Logger,
-  Injectable, NestInterceptor, ExecutionContext, CallHandler, NotFoundException, UseInterceptors,
-} from '@nestjs/common';
+import { Controller, Get, Param, Delete, Query } from '@nestjs/common';
 import { CountryService } from './country.service';
 import { ApiQuery } from '@nestjs/swagger';
 
@@ -21,14 +8,12 @@ export class CountryController {
 
   @Get()
   @ApiQuery({
-    name: "currency",
+    name: 'currency',
     type: 'Int',
-    description: "A currency id. Optional",
-    required: false
+    description: 'A currency id. Optional',
+    required: false,
   })
-  findAll(
-    @Query('currency') currency?: number
-  ) {
+  findAll(@Query('currency') currency?: number) {
     return this.countryService.findAll(currency);
   }
 

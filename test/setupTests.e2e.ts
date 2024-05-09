@@ -51,5 +51,5 @@ afterAll(async () => {
   console.log('test db stopped...');
 });
 // add some timeout until containers are up and working
-jest.setTimeout(8000);
+jest.setTimeout(60*1000);
 export { postgresClient, prismaService };

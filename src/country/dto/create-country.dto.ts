@@ -1,12 +1,12 @@
-import { IsString, IsOptional } from 'class-validator';
+import { IsString } from 'class-validator';
 
 export class CreateCountryDto {
   @IsString()
-  name   :    string
+  name: string;
   @IsString()
-  alpha2  :   string
+  alpha2: string;
   @IsString()
-  alpha3  :   string
-  currencies:  number[]
-  deleted: boolean = false
+  alpha3: string;
+  currencies: number[];
+  deleted: boolean = false;
 }

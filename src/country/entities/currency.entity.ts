@@ -1,9 +1,9 @@
 import { Country } from './country.entity';
 
 export class Currency {
-  id:      Number
-  alphabeticCode: String
-  numericCode:    String
-  minorUnit:      Number
-  locations:      Country[]
+  id: number;
+  alphabeticCode: string;
+  numericCode: string;
+  minorUnit: number;
+  locations: Country[];
 }

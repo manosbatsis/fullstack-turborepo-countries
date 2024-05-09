@@ -24,8 +24,6 @@ describe('CountryController', () => {
     controller = module.get<CountryController>(CountryController);
   });
 
-
-
   it('should be defined', () => {
     expect(controller).toBeDefined();
   });

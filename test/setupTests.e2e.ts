@@ -1,4 +1,7 @@
-import { PostgreSqlContainer, StartedPostgreSqlContainer } from '@testcontainers/postgresql';
+import {
+  PostgreSqlContainer,
+  StartedPostgreSqlContainer,
+} from '@testcontainers/postgresql';
 import { Client } from 'pg';
 import { PrismaService } from '../src/prisma/prisma.service';
 import { execSync } from 'child_process';
@@ -31,25 +34,22 @@ beforeAll(async () => {
   });
   //Set prisma instance
   prismaService = new PrismaService({
-      datasources: {
-        db: {
-          url: databaseUrl,
-        },
+    datasources: {
+      db: {
+        url: databaseUrl,
       },
-      log: ['query']
-
     },
-  );
+    log: ['query'],
+  });
   console.log('connected to test db...');
-})
+});
 
 afterAll(async () => {
-//Stop container as well as postgresClient
+  //Stop container as well as postgresClient
   await postgresClient.end();
   await postgresContainer.stop();
   console.log('test db stopped...');
 });
 // add some timeout until containers are up and working
-jest.setTimeout(8000);
+jest.setTimeout(60*1000);
 export { postgresClient, prismaService };
-

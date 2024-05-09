@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { INestApplication } from '@nestjs/common';
 import * as request from 'supertest';
 import { AppModule } from '../src/app.module';
-import { postgresClient, prismaService } from './setupTests.e2e';
+import { prismaService } from './setupTests.e2e';
 import { PrismaService } from '../src/prisma/prisma.service';
 
 describe('AppController (e2e)', () => {
@@ -11,7 +11,8 @@ describe('AppController (e2e)', () => {
   beforeEach(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
       imports: [AppModule],
-    }).overrideProvider(PrismaService)
+    })
+      .overrideProvider(PrismaService)
       .useValue(prismaService)
       .compile();
 
@@ -25,5 +26,4 @@ describe('AppController (e2e)', () => {
       .expect(200)
       .expect('Hello World!');
   });
-
 });

@@ -1,4 +1,4 @@
-# fullstack-turborepo-countries
+# fullstack-turborepo-countries [![CI](https://github.com/manosbatsis/fullstack-turborepo-countries/actions/workflows/ci.yml/badge.svg)](https://github.com/manosbatsis/fullstack-turborepo-countries/actions/workflows/ci.yml)
 
 WIP for trying out [turborepo](https://turbo.build/), [prisma](https://www.prisma.io/) and [react native](https://reactnative.dev).
 
@@ -18,7 +18,7 @@ $ npm install
 
 ## Running the app
 
-Copy the sample docker env:
+Create an environment file or copy the sample docker one:
 
 ```bash 
 cp .env.example .env
@@ -30,7 +30,7 @@ Maybe launch a postgres with docker compose...
 docker-compose up
 ```
 
-... init and seed it
+Init and seed the DB
 
 ```bash 
 npx prisma migrate dev && npx prisma db seed

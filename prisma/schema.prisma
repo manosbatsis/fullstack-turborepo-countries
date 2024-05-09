@@ -1,0 +1,32 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Country {
+  id         Int        @id @default(autoincrement())
+  name       String     @unique
+  alpha2     String     @unique
+  alpha3     String     @unique
+  currencies Currency[]
+  deleted    Boolean    @default(false)
+}
+
+// Based on ISO 4217, see https://en.wikipedia.org/wiki/ISO_4217
+model Currency {
+  id             Int       @id @default(autoincrement())
+  alphabeticCode String    @unique
+  numericCode    String    @unique
+  minorUnit      Int
+  locations      Country[]
+}

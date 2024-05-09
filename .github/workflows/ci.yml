@@ -36,5 +36,5 @@ jobs:
       - name: Run unit tests
         run: npm run test
 
-      - name: Run e2e tests
+      - name: Run e2e tests with testcontainers
         run: npm run test:e2e

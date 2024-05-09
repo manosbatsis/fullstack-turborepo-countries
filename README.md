@@ -16,8 +16,6 @@ WIP for trying out [turborepo](https://turbo.build/), [prisma](https://www.prism
 $ npm install
 ```
 
-
-
 ## Running the app
 
 Copy the sample docker env:
@@ -57,6 +55,8 @@ npm run start:prod
 ```
 
 ## Test
+
+Try out the Swagger UI at http://localhost:3000/api
 
 Run unit tests
 
